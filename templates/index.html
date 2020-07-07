@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API For Diabetes status Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+ <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+ <style>
+input[type=text] {
+background-color:LightSlateGray;
+ color: white;
+ border: 1px solid red;
+ border-radius: 4px;
+ width: 400px;
+ height: 50px;
+}
+
+</style>
+</head>
+
+<body>
+<div class="w3-container w3-blue w3-center">
+<h1><b>Machine Learning Model </br>To </br>Predict Diabetes Status for Females</b></h1>
+</div>
+ <div class="w3-container w3-blue w3-center">
+ 
+	
+</br></br>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form class="w3-container" action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="BMI" placeholder="BMI" required="required" /></br></br>
+        <input type="text" name="Glucose" placeholder="Glucose Level" required="required" /></br></br>
+		<input type="text" name="Pregnancies" placeholder="No of Pregnancies" required="required" /></br></br>
+		<input type="text" name="DPF" placeholder="Diabetes Pedigree Function" required="required" /></br></br>
+		<input type="text" name="Age" placeholder="Age" required="required" /></br></br>
+
+        <button type="submit" class="w3-button w3-round-xlarge w3-large w3-teal" style="width:30%">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+<br>
+<br>
+</div>
+<div w3-container w3-blue>
+ <ul>
+     <li class="w3-panel w3-green w3-round-xlarge"><b>BMI:</b> Body mass index (weight in kg/(height in m)2)</li>
+    <li class="w3-panel w3-green w3-round-xlarge"><b>Glucose:</b> Plasma glucose concentration over 2 hours in an oral glucose tolerance test</li>
+    <li class="w3-panel w3-green w3-round-xlarge"><b>Pregnancies:</b> Number of times pregnant</li>
+    <li class="w3-panel w3-green w3-round-xlarge"><b>DiabetesPedigreeFunction:</b> Diabetes pedigree function (a function which scores likelihood of diabetes based on family history)</li>
+    <li class="w3-panel w3-green w3-round-xlarge"><b>Age:</b> Age (years)</li>
+ </ul>
+ </div>
+<div class="w3-container w3-gray w3-border w3-round-xlarge w3-center">
+<h1>Developed by Govinda Rajbhar</h2>
+</div>
+
+ 
+
+</body>
+</html>
